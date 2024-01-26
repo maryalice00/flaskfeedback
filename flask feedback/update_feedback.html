@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Feedback{% endblock %}
+
+{% block content %}
+  <h1>Update Feedback</h1>
+  <form method="post" action="{{ url_for('update_feedback', feedback_id=feedback.id) }}">
+    {{ form.hidden_tag() }}
+    <div>
+      {{ form.title.label }} {{ form.title }}
+    </div>
+    <div>
+      {{ form.content.label }} {{ form.content }}
+    </div>
+    <div>
+      {{ form.submit }}
+    </div>
+  </form>
+  <a href="{{ url_for('user_profile', username=feedback.user.username) }}">Cancel</a>
+{% endblock %}
